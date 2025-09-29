@@ -85,7 +85,7 @@ void Menu::PrintDictionary() {
 }
 
 void Menu::LoadDictionaryFromFile() {
-    string filename = "D:\\STUDYING\\PPOIS\\labwork1\\lab1Dictionary\\Input\\DictionaryInput.txt";
+    string filename = "C:\\STUDYING\\PPOIS\\labwork1\\lab1Dictionary\\Input\\DictionaryInput.txt";
 
     auto WordPairs = ReadFile::ReadDictionary(filename);
 
