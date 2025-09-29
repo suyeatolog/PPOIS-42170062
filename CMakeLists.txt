@@ -28,5 +28,6 @@ add_executable(tests
         lab1Dictionary/tests/DictionaryNodeTests.cpp
         lab1Dictionary/tests/test_main.cpp
         lab1Dictionary/tests/DictionaryTests.cpp
+        lab1Dictionary/tests/ReadFiles.cpp
 )
 target_link_libraries(tests gtest)
