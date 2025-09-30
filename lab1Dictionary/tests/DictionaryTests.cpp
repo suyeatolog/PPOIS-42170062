@@ -136,3 +136,26 @@ TEST_F(DictionaryTest, PrintEmptyDictionary) {
 
     EXPECT_TRUE(output.find("empty") != std::string::npos);
 }
+
+TEST_F(DictionaryTest, DeleteWordWith2Branches) {
+    *dict += std::make_pair("dog", "собака");
+    *dict += std::make_pair("banana", "банан");
+    *dict += std::make_pair("apple", "яблоко");
+    *dict += std::make_pair("cat", "кот");
+    *dict += std::make_pair("elephant", "слон");
+
+    int initialCount = dict->GetWordCount();
+
+    *dict -= "banana";
+
+    EXPECT_FALSE(dict->WordExists("banana"));
+    EXPECT_EQ(dict->GetWordCount(), initialCount-1);
+
+    EXPECT_TRUE(dict->WordExists("apple"));
+    EXPECT_TRUE(dict->WordExists("cat"));
+    EXPECT_TRUE(dict->WordExists("dog"));
+    EXPECT_TRUE(dict->WordExists("elephant"));
+
+    EXPECT_EQ((*dict)["apple"], "яблоко");
+    EXPECT_EQ((*dict)["cat"], "кот");
+}
