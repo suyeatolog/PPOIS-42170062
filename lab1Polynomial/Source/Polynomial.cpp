@@ -103,7 +103,7 @@ Polynomial Polynomial::operator*(const Polynomial& OtherPolynomial) const {
 
     for (int i = 0; i < PolynomialCoefficients_.size(); i++) {
         for (int j = 0; j < OtherPolynomial.PolynomialCoefficients_.size(); j++) {
-            result.PolynomialCoefficients_[i + j] = PolynomialCoefficients_[i] * OtherPolynomial.PolynomialCoefficients_[j];
+            result.PolynomialCoefficients_[i + j] += PolynomialCoefficients_[i] * OtherPolynomial.PolynomialCoefficients_[j];
         }
     }
     return result;
