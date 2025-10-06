@@ -37,5 +37,10 @@ add_executable(tests
         lab1Dictionary/tests/test_main.cpp
         lab1Dictionary/tests/DictionaryTests.cpp
         lab1Dictionary/tests/ReadFiles.cpp
+        lab1Polynomial/Include/Polynomial.h
+        lab1Polynomial/Include/PolynomialMenu.h
+        lab1Polynomial/Source/Polynomial.cpp
+        lab1Polynomial/Source/PolynomialMenu.cpp
+        lab1Dictionary/tests/PolynomialTest.cpp
 )
 target_link_libraries(tests gtest)

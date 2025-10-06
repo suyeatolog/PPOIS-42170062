@@ -2,7 +2,7 @@
 #include <iostream>
 
 int main(int argc, char **argv) {
-    std::cout << "=== Running Dictionary Tests ===" << std::endl;
+    std::cout << "=== Running ALL Tests ===" << std::endl;
 
     ::testing::InitGoogleTest(&argc, argv);
 
