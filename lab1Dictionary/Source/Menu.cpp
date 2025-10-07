@@ -6,6 +6,8 @@
 #include "../Include/ReadFile.h"
 #include <iostream>
 #include <windows.h>
+#include <string>
+#include <limits>
 
 using namespace std;
 
@@ -36,8 +38,9 @@ void Menu::AddWord() {
         return;
     }
 
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << "Enter russian translate: ";
-    cin >> RuTranslation;
+    getline(cin, RuTranslation);
 
     Dictionary += make_pair(EnWord, RuTranslation);
     cout << "The word " << EnWord << " is added to a dictionary!" << endl;
@@ -64,9 +67,9 @@ void Menu::ChangeTranslation() {
     string EnWord, NewRuTranslation;
     cout << "Enter english word to change translation: ";
     cin >> EnWord;
-
+    cin.ignore(1000, '\n');
     cout << "Enter new russian translation: ";
-    cin >> NewRuTranslation;
+    getline(cin, NewRuTranslation);
 
     Dictionary.ChangeTranslation(EnWord, NewRuTranslation);
 }

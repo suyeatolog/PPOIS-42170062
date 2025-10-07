@@ -61,7 +61,7 @@ TEST_F(PolynomialTests, AdditionTest) {
 }
 
 TEST_F(PolynomialTests, MultipleAdditionTest) {
-    Polynomial result = poly2 + poly3 + poly4;
+    Polynomial result = poly2 += poly3 += poly4;
     EXPECT_EQ(result.getDegree(), 2);
     EXPECT_DOUBLE_EQ(result[0], 6);
     EXPECT_DOUBLE_EQ(result[1], 6);
@@ -80,10 +80,10 @@ TEST_F(PolynomialTests, SubtractionTest) {
 }
 
 TEST_F(PolynomialTests, MultipleSubtractionTest) {
-    Polynomial result = poly4 - poly2 - poly3;
+    Polynomial result = poly4 -= poly2 -= poly3;
     EXPECT_EQ(result.getDegree(), 2);
-    EXPECT_DOUBLE_EQ(result[0], -2);
-    EXPECT_DOUBLE_EQ(result[1], 0);
+    EXPECT_DOUBLE_EQ(result[0], 4);
+    EXPECT_DOUBLE_EQ(result[1], 2);
     EXPECT_DOUBLE_EQ(result[2], 1);
 }
 
@@ -105,11 +105,48 @@ TEST_F(PolynomialTests, MultiplicationTest) {
 }
 
 TEST_F(PolynomialTests, MultipleMultiplicationTest) {
-    Polynomial result = poly2 * poly3 * poly5;
+    Polynomial result = poly2 *= poly3 *= poly5;
     EXPECT_EQ(result.getDegree(), 4);
     EXPECT_DOUBLE_EQ(result[0], 0);
     EXPECT_DOUBLE_EQ(result[1], 0);
     EXPECT_DOUBLE_EQ(result[2], 15);
     EXPECT_DOUBLE_EQ(result[3], 35);
     EXPECT_DOUBLE_EQ(result[4], 10);
+}
+
+TEST_F(PolynomialTests, DivisionTest) {
+    Polynomial divisor({1, 1});
+    Polynomial result = poly4 / divisor;
+    EXPECT_EQ(result.getDegree(), 1);
+    EXPECT_DOUBLE_EQ(result[0], 2);
+    EXPECT_DOUBLE_EQ(result[1], 1);
+
+    result = poly2 / poly1;
+    EXPECT_EQ(result.getDegree(), 1);
+    EXPECT_DOUBLE_EQ(result[0], 1);
+    EXPECT_DOUBLE_EQ(result[1], 2);
+
+    EXPECT_THROW(poly2/poly0, std::invalid_argument);
+}
+
+TEST_F(PolynomialTests, MultipleDivisionTest) {
+    Polynomial multiplication = poly2 * poly3;
+    Polynomial result = multiplication /= poly3 /= poly1;
+
+    EXPECT_EQ(result.getDegree(), 1);
+    EXPECT_DOUBLE_EQ(result[0], 1);
+    EXPECT_DOUBLE_EQ(result[1], 2);
+}
+
+TEST_F(PolynomialTests, PrintTest) {
+    testing::internal::CaptureStdout();
+    poly2.print();
+    std::string output = testing::internal::GetCapturedStdout();
+
+    EXPECT_TRUE(output.find("2x + 1")!=std::string::npos);
+
+    testing::internal::CaptureStdout();
+    poly0.print();
+    std::string output2 = testing::internal::GetCapturedStdout();
+    EXPECT_TRUE(output2.find("0")!=std::string::npos);
 }
