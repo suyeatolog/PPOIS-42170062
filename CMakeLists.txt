@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_subdirectory(googletest)
 
-add_executable(labwork1 lab1Dictionary/Source/main.cpp
+add_executable(dictionary lab1Dictionary/Source/main.cpp
         lab1Dictionary/Include/Menu.h
         lab1Dictionary/Source/DictionaryNode.cpp
         lab1Dictionary/Source/Dictionary.cpp

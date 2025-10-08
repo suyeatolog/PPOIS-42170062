@@ -28,7 +28,8 @@ void Menu::PrintMenu() {
 }
 
 void Menu::AddWord() {
-    string EnWord, RuTranslation;
+    string EnWord;
+    string RuTranslation;
 
     cout << "Enter english word: ";
     cin >> EnWord;
@@ -40,7 +41,7 @@ void Menu::AddWord() {
 
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << "Enter russian translate: ";
-    getline(cin, RuTranslation);
+    cin >> RuTranslation;
 
     Dictionary += make_pair(EnWord, RuTranslation);
     cout << "The word " << EnWord << " is added to a dictionary!" << endl;
