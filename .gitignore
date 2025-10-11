@@ -4,3 +4,4 @@ cmake-build-debug-coverage/
 CMakeLists.txt
 lab1Polynomial/Input
 googletest
+doc
