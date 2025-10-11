@@ -26,17 +26,27 @@ TEST_F(PolynomialTests, ConstructorAndGetter) {
 }
 
 TEST_F(PolynomialTests, IndexOperator) {
-    Polynomial polynomial({1, 2, 3});
+    Polynomial p({1, 2, 3});
 
-    EXPECT_EQ(polynomial[0], 1);
-    EXPECT_EQ(polynomial[1], 2);
-    EXPECT_EQ(polynomial[2], 3);
+    EXPECT_EQ(p[0], 1);
+    EXPECT_EQ(p[1], 2);
+    EXPECT_EQ(p[2], 3);
 
-    polynomial[5] = 5;
-    EXPECT_EQ(polynomial[5], 5);
-    EXPECT_EQ(polynomial.getDegree(), 5);
+    EXPECT_THROW(p[5], std::out_of_range);
+    EXPECT_THROW(p[-1], std::out_of_range);
+}
 
-    EXPECT_THROW(polynomial[-1], std::out_of_range);
+TEST_F(PolynomialTests, IndexOperatorWrite) {
+    Polynomial p({1, 2, 3});
+
+    p[0] = 10;
+    p[1] = 20;
+
+    EXPECT_EQ(p[0], 10);
+    EXPECT_EQ(p[1], 20);
+    EXPECT_EQ(p[2], 3);
+
+    EXPECT_THROW(p[5] = 100, std::out_of_range);
 }
 
 TEST_F(PolynomialTests, EvaluationTest) {

@@ -17,14 +17,9 @@ Polynomial::Polynomial(const std::vector<double> &coefficients) {
 }
 
 double& Polynomial::operator[](int index) {
-    if (index < 0) {
-        throw std::out_of_range("Index is negative. Index must be Positive");
+    if (index < 0 || index >= PolynomialCoefficients_.size()) {
+        throw std::out_of_range("Index is out of range!");
     }
-
-    if (index >= PolynomialCoefficients_.size()) {
-        PolynomialCoefficients_.resize(index + 1, 0.0);
-    }
-
     return PolynomialCoefficients_[index];
 }
 
