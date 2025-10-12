@@ -125,7 +125,7 @@ Polynomial Polynomial::operator/(const Polynomial& OtherPolynomial) const {
     double otherLeading = OtherPolynomial.PolynomialCoefficients_.back();
     int otherDegree = OtherPolynomial.PolynomialCoefficients_.size() - 1;
 
-    for (int i =dividendCoefficients.size() - 1; i >= otherDegree; i--) {
+    for (int i = dividendCoefficients.size() - 1; i >= otherDegree; i--) {
         if (dividendCoefficients[i] != 0) {
             double factor = dividendCoefficients[i] / otherLeading;
             int pos = i - otherDegree;

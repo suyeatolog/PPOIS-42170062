@@ -5,7 +5,7 @@
 #include "../Include/DictionaryNode.h"
 #include <iostream>
 
-DictionaryNode::DictionaryNode(std::string EnWord, std::string RuTranslation ) {
+DictionaryNode::DictionaryNode(std::string EnWord, std::string RuTranslation) {
     this->EnWord_ = EnWord;
     this->RuTranslation_ = RuTranslation;
     this-> Left_ = nullptr;
