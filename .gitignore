@@ -1,0 +1,6 @@
+cmake-build-debug-coverage
+cmake-build-debug-coverage
+counter.txt
+CMakeLists.txt
+googletest
+.idea
