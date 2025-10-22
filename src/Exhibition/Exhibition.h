@@ -16,7 +16,7 @@ public:
 
     std::string GetExhibitionName() const;
     std::string GetExhibitionTheme() const;
-    std::vector GetExhibits() const;
+    std::vector<Exhibit*> GetExhibits() const;
     int GetExhibitsCount() const;
     Exhibit* GetExhibitByIndex(int index) const;
 
