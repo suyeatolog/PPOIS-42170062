@@ -15,7 +15,7 @@ class TicketWindow {
     int GetAmountOfTickets() const;
     int GetTotalGain() const;
 
-    void SetAmountOfTickets(int value);
+    void SetAmountOfTickets(int amount);
 
     void SellTickets(int amountOfTickets);
 
