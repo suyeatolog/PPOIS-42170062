@@ -19,7 +19,7 @@ TEST_F(TicketTest, ConstructorTest) {
     EXPECT_EQ(defaultTicket.GetTicketPrice(), 0);
 }
 
-TEST_F(TicketTest, SettersTest) {
+TEST_F(TicketTest, SettersGettersTest) {
     testTicket.SetTicketName("Ticket2");
     testTicket.SetTicketNumber(2);
     testTicket.SetTicketPrice(10);

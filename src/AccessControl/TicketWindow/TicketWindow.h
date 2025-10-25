@@ -5,6 +5,7 @@
 #ifndef LABWORK2_TICKETWINDOW_H
 #define LABWORK2_TICKETWINDOW_H
 #include "../Ticket/Ticket.h"
+#include "../../Visitor/Visitor.h"
 #include <string>
 
 class TicketWindow {
@@ -20,6 +21,8 @@ class TicketWindow {
     void SellTickets(int amountOfTickets);
 
     private:
+    Visitor* visitor_ = nullptr;
+    Ticket* ticket_ = nullptr;
     int amountOfTickets_ = 0;
     int totalGain_ = 0;
 };
