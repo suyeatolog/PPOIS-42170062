@@ -18,11 +18,9 @@ class TicketWindow {
 
     void SetAmountOfTickets(int amount);
 
-    void SellTickets(int amountOfTickets);
+    void SellTicket(Visitor& visitor, Ticket& ticket);
 
     private:
-    Visitor* visitor_ = nullptr;
-    Ticket* ticket_ = nullptr;
     int amountOfTickets_ = 0;
     int totalGain_ = 0;
 };

@@ -14,7 +14,8 @@ void TicketWindow::SetAmountOfTickets(int amount) {
     this->amountOfTickets_ = amount;
 }
 
-void TicketWindow::SellTickets(int amountOfTickets) {
-    this->amountOfTickets_ -= amountOfTickets;
-    totalGain_ += amountOfTickets;
+void TicketWindow::SellTicket(Visitor& visitor, Ticket& ticket) {
+    this->amountOfTickets_ -= 1;
+    this->totalGain_ += ticket.GetTicketPrice();
+    visitor.SetVisitorHasTicket(true);
 }
