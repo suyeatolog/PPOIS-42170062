@@ -1,4 +1,6 @@
 #include <gtest/gtest.h>
+
+#include "../Exceptions/Exceptions.h"
 #include "../Visitor/Visitor.h"
 
 class VisitorTest : public ::testing::Test {
@@ -27,4 +29,9 @@ TEST_F(VisitorTest, SettersGettersTest) {
     EXPECT_EQ(testVisitor.GetVisitorName(), "Stas");
     EXPECT_EQ(testVisitor.GetVisitorAge(), 18);
     EXPECT_TRUE(testVisitor.GetVisitorHasTicket());
+}
+
+TEST_F(VisitorTest, ExceptionsTest) {
+    EXPECT_THROW(testVisitor.SetVisitorName(""), EmptyNameException);
+    EXPECT_THROW(testVisitor.SetVisitorAge(-1), InvalidAgeException);
 }

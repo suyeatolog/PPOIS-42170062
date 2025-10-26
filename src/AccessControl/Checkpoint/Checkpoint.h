@@ -4,5 +4,14 @@
 
 #ifndef LABWORK2_CHECKPOINT_H
 #define LABWORK2_CHECKPOINT_H
-#include "../TicketWindow/TicketWindow.h"
+#include "../../Visitor/Visitor.h"
+
+class Checkpoint {
+public:
+    Checkpoint() = default;
+    ~Checkpoint() = default;
+
+    void CheckAccess(Visitor& visitor);
+};
+
 #endif //LABWORK2_CHECKPOINT_H

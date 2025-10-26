@@ -3,6 +3,9 @@
 //
 
 #include "TicketWindow.h"
+
+#include "../../Exceptions/Exceptions.h"
+
 int TicketWindow::GetAmountOfTickets() const {
     return amountOfTickets_;
 }
@@ -15,6 +18,12 @@ void TicketWindow::SetAmountOfTickets(int amount) {
 }
 
 void TicketWindow::SellTicket(Visitor& visitor, Ticket& ticket) {
+    if (amountOfTickets_ <= 0) {
+        throw NoTicketsAvailableException("No tickets available for sale.");
+    }
+    if (ticket.GetTicketPrice() < 0) {
+        throw InvalidTicketPriceException("Ticket price cannot be negative.");
+    }
     this->amountOfTickets_ -= 1;
     this->totalGain_ += ticket.GetTicketPrice();
     visitor.SetVisitorHasTicket(true);

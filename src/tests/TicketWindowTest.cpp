@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "../AccessControl/TicketWindow/TicketWindow.h"
+#include "../Exceptions/Exceptions.h"
 
 class TicketWindowTest : public ::testing::Test {
 protected:
@@ -33,4 +34,12 @@ TEST_F(TicketWindowTest, SellingTicketTest) {
     EXPECT_EQ(testTicketWindow.GetAmountOfTickets(), 149);
     EXPECT_EQ(testTicketWindow.GetTotalGain(), 5);
     EXPECT_TRUE(testVisitor.GetVisitorHasTicket());
+}
+
+TEST_F(TicketWindowTest, ExceptionsTest) {
+    testTicket.SetTicketPrice(-1);
+    EXPECT_THROW(testTicketWindow.SellTicket(testVisitor, testTicket), InvalidTicketPriceException);
+    testTicket.SetTicketPrice(5);
+    testTicketWindow.SetAmountOfTickets(0);
+    EXPECT_THROW(testTicketWindow.SellTicket(testVisitor, testTicket), NoTicketsAvailableException);
 }
