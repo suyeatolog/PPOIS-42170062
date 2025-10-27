@@ -15,7 +15,7 @@ protected:
     Exhibition exhibition;
 };
 
-TEST_F(ArtHallTest, GettetsTest) {
+TEST_F(ArtHallTest, GettersTest) {
     EXPECT_EQ(artHall.GetHallName(), "Renaissance Gallery");
     EXPECT_EQ(artHall.GetHallNumber(), 1);
     EXPECT_DOUBLE_EQ(artHall.GetHallArea(), 150.5);
