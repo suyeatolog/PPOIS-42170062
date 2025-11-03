@@ -15,12 +15,12 @@ public:
     std::string GetArmorMaterial() const;
     std::string GetArmorType() const;
     bool GetArmorIsFunctional() const;
-    double GetJewelryWeight() const;
+    double GetArmorWeight() const;
 
     void SetArmorMaterial(std::string material);
     void SetArmorType(std::string type);
     void SetArmorIsFunctional(bool isFunctional);
-    void SetJewelryWeight(double weight);
+    void SetArmorWeight(double weight);
 
     std::string GetExhibitType() const override;
 private:

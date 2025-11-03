@@ -12,7 +12,7 @@ std::string Armor::GetArmorType() const {
 bool Armor::GetArmorIsFunctional() const {
     return isFunctional_;
 }
-double Armor::GetJewelryWeight() const {
+double Armor::GetArmorWeight() const {
     return weight_;
 }
 
@@ -25,7 +25,7 @@ void Armor::SetArmorType(std::string type) {
 void Armor::SetArmorIsFunctional(bool isFunctional) {
     this->isFunctional_ = isFunctional;
 }
-void Armor::SetJewelryWeight(double weight) {
+void Armor::SetArmorWeight(double weight) {
     this->weight_ = weight;
 }
 

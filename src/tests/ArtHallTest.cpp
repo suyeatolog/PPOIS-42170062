@@ -38,7 +38,7 @@ TEST_F(ArtHallTest, ConstructorTest) {
     EXPECT_EQ(defaultArtHall.GetArtPeriod(), "");
 }
 
-TEST_F(ArtHallTest, ExhibitionManagement) {
+TEST_F(ArtHallTest, ExhibitionManagementTest) {
     exhibition.SetExhibitionName("Masterpieces of Renaissance");
 
     artHall.SetCurrentExhibition(&exhibition);
