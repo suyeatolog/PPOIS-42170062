@@ -18,3 +18,13 @@ NoTicketException::NoTicketException(const char* message) : Exception(message) {
 InvalidAgeException::InvalidAgeException(const char* message) : Exception(message) {}
 
 EmptyNameException::EmptyNameException(const char* message) : Exception(message) {}
+
+TourException::TourException(const char* message) : Exception(message) {}
+
+EmptyTourRouteException::EmptyTourRouteException(const char* message) : TourException(message) {}
+
+TourFullException::TourFullException(const char* message) : TourException(message) {}
+
+TourNotActiveException::TourNotActiveException(const char* message) : TourException(message) {}
+
+InvalidTourParameterException::InvalidTourParameterException(const char* message) : TourException(message) {}

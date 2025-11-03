@@ -40,4 +40,30 @@ class EmptyNameException : public Exception {
 public:
     explicit EmptyNameException(const char* message);
 };
+
+class TourException : public Exception {
+public:
+    explicit TourException(const char* message);
+};
+
+class EmptyTourRouteException : public TourException {
+public:
+    explicit EmptyTourRouteException(const char* message);
+};
+
+class TourFullException : public TourException {
+public:
+    explicit TourFullException(const char* message);
+};
+
+class TourNotActiveException : public TourException {
+public:
+    explicit TourNotActiveException(const char* message);
+};
+
+class InvalidTourParameterException : public TourException {
+public:
+    explicit InvalidTourParameterException(const char* message);
+};
+
 #endif //LABWORK2_EXCEPTIONS_H
