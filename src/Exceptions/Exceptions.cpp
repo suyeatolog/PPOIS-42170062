@@ -28,3 +28,13 @@ TourFullException::TourFullException(const char* message) : TourException(messag
 TourNotActiveException::TourNotActiveException(const char* message) : TourException(message) {}
 
 InvalidTourParameterException::InvalidTourParameterException(const char* message) : TourException(message) {}
+
+TourGuideException::TourGuideException(const char* message) : Exception(message) {}
+
+TourGuideNotAvailableException::TourGuideNotAvailableException(const char* message) : TourGuideException(message) {}
+
+TourAlreadyInProgressException::TourAlreadyInProgressException(const char* message) : TourGuideException(message) {}
+
+InvalidTourParametersException::InvalidTourParametersException(const char* message) : TourGuideException(message) {}
+
+GuideSpecializationMismatchException::GuideSpecializationMismatchException(const char* message) : TourGuideException(message) {}

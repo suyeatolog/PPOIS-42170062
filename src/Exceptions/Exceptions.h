@@ -27,7 +27,7 @@ public:
 };
 
 class NoTicketException : public Exception {
-    public:
+public:
     explicit NoTicketException(const char* message);
 };
 
@@ -64,6 +64,31 @@ public:
 class InvalidTourParameterException : public TourException {
 public:
     explicit InvalidTourParameterException(const char* message);
+};
+
+class TourGuideException : public Exception {
+public:
+    explicit TourGuideException(const char* message);
+};
+
+class TourGuideNotAvailableException : public TourGuideException {
+public:
+    explicit TourGuideNotAvailableException(const char* message);
+};
+
+class TourAlreadyInProgressException : public TourGuideException {
+public:
+    explicit TourAlreadyInProgressException(const char* message);
+};
+
+class InvalidTourParametersException : public TourGuideException {
+public:
+    explicit InvalidTourParametersException(const char* message);
+};
+
+class GuideSpecializationMismatchException : public TourGuideException {
+public:
+    explicit GuideSpecializationMismatchException(const char* message);
 };
 
 #endif //LABWORK2_EXCEPTIONS_H
