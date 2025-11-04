@@ -1,9 +1,14 @@
 #include "TourGuide.h"
 #include "../../Exceptions/Exceptions.h"
 
+TourGuide::TourGuide() {
+    specialization_ = "General";
+}
+
 TourGuide::~TourGuide() {
     if (currentTour_ != nullptr) {
         delete currentTour_;
+        currentTour_ = nullptr;
     }
 }
 
@@ -65,6 +70,7 @@ void TourGuide::CreateTour(std::string tourName, std::string theme) {
     }
     if (currentTour_ != nullptr) {
         delete currentTour_;
+        currentTour_ = nullptr;
     }
     currentTour_ = new Tour();
     currentTour_->SetTourName(tourName);
@@ -85,10 +91,11 @@ void TourGuide::EndTour() {
     if (currentTour_ == nullptr) {
         throw InvalidTourParametersException("No active tour to end");
     }
-    currentTour_->EndTour();
-    toursCompleted_++;
+    if (currentTour_->IsActive()) {
+        currentTour_->EndTour();
+        toursCompleted_++;
+    }
     isAvailable_ = true;
-
     delete currentTour_;
     currentTour_ = nullptr;
 }
@@ -149,5 +156,7 @@ bool TourGuide::CanGuideHall(Hall* hall) const {
 
 double TourGuide::CalculateTourSuccessRate() const {
     if (toursConducted_ == 0) return 0.0;
-    return toursCompleted_ / toursConducted_;
+    double completed = toursCompleted_;
+    double conducted = toursConducted_;
+    return completed / conducted;
 }

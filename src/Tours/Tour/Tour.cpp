@@ -70,10 +70,11 @@ void Tour::ClearRoute() {
     this->currentHallIndex_ = -1;
 }
 void Tour::ReverseRoute() {
-    for (int i = 0; i < route_.size(); i++) {
+    int size = route_.size();
+    for (int i = 0; i < size / 2; i++) {
         Hall* temp = route_[i];
-        route_[i] = route_[route_.size() - 1 - i];
-        route_[route_.size() - 1 - i] = temp;
+        route_[i] = route_[size - 1 - i];
+        route_[size - 1 - i] = temp;
     }
 }
 
@@ -114,7 +115,7 @@ void Tour::MoveToNextHall() {
         throw TourNotActiveException("Tour is not active");
     }
 
-    if (currentHallIndex_ < route_.size()) {
+    if (currentHallIndex_ < route_.size() - 1) {
         currentHallIndex_++;
     } else {
         EndTour();

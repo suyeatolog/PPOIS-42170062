@@ -10,7 +10,7 @@
 
 class TourGuide {
 public:
-    TourGuide() = default;
+    TourGuide();
     ~TourGuide();
 
     std::string GetName() const;
@@ -49,7 +49,7 @@ private:
     std::vector<std::string> languages_;
     int toursCompleted_ = 0;
     int toursConducted_ = 0;
-    Tour* currentTour_;
+    Tour* currentTour_ = nullptr;
     bool isAvailable_ = true;
 };
 
