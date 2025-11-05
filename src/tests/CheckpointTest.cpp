@@ -2,6 +2,8 @@
 #include "../AccessControl/Checkpoint/Checkpoint.h"
 #include "../Exceptions/Exceptions.h"
 #include "../Visitor/Visitor.h"
+#include "../AccessControl/TicketWindow/TicketWindow.h"
+#include "../AccessControl/Guard/Guard.h"
 
 class CheckpointTest : public ::testing::Test {
 protected:
@@ -16,15 +18,25 @@ protected:
     }
 
     Checkpoint checkpoint;
+    TicketWindow ticketWindow;
+    Guard guard;
     Visitor visitorWithTicket;
     Visitor visitorWithoutTicket;
+    Visitor visitor;
 };
 
 TEST_F(CheckpointTest, AccessTest1) {
-    checkpoint.CheckAccess(visitorWithTicket);
+    checkpoint.CheckAccess(visitorWithTicket, guard, ticketWindow);
     EXPECT_TRUE(visitorWithTicket.GetVisitorHasAccess());
 }
 
 TEST_F(CheckpointTest, AccessTest2) {
-    EXPECT_THROW(checkpoint.CheckAccess(visitorWithoutTicket), NoTicketException);
+    EXPECT_THROW(checkpoint.CheckAccess(visitorWithoutTicket, guard, ticketWindow), NoTicketException);
+}
+
+TEST_F(CheckpointTest, RetakingTicketTest) {
+    visitor.SetVisitorHasTicket(true);
+    visitor.SetVisitorIsSuspicious(true);
+    visitor.SetVisitorIsDangerous(true);
+    EXPECT_THROW(checkpoint.CheckAccess(visitor, guard, ticketWindow), NoTicketException);
 }
