@@ -8,5 +8,4 @@ void Checkpoint::CheckAccess(Visitor &visitor) {
     }
 
     visitor.SetVisitorHasAccess(true);
-    std::cout << "Access granted to " << visitor.GetVisitorName() << std::endl;
 }

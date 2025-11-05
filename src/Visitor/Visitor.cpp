@@ -20,6 +20,14 @@ bool Visitor::GetVisitorHasAccess() const {
     return hasAccessToMuseum_;
 }
 
+bool Visitor::GetVisitorIsSuspicious() const {
+    return isSuspicious_;
+}
+
+bool Visitor::GetVisitorIsDangerous() const {
+    return isDangerous_;
+}
+
 void Visitor::SetVisitorName(std::string name) {
     if (name.empty()) {
         throw EmptyNameException("Visitor name cannot be empty.");
@@ -37,4 +45,12 @@ void Visitor::SetVisitorHasTicket(bool hasTicket) {
 }
 void Visitor::SetVisitorHasAccess(bool hasAccess) {
     this->hasAccessToMuseum_ = hasAccess;
+}
+
+void Visitor::SetVisitorIsSuspicious(bool isSuspicious) {
+    this->isSuspicious_ = isSuspicious;
+}
+
+void Visitor::SetVisitorIsDangerous(bool isDangerous) {
+    this->isDangerous_ = isDangerous;
 }
