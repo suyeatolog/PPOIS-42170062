@@ -91,4 +91,18 @@ public:
     explicit GuideSpecializationMismatchException(const char* message);
 };
 
+class InvalidVisitorParameterException : public Exception {
+    public:
+    explicit InvalidVisitorParameterException(const char* message);
+};
+
+class FullParticipantsException : public Exception {
+public:
+    explicit FullParticipantsException(const char* message);
+};
+
+class VisitorAlreadyRegistered : public Exception {
+public:
+    explicit VisitorAlreadyRegistered(const char* message);
+};
 #endif //LABWORK2_EXCEPTIONS_H

@@ -38,3 +38,9 @@ TourAlreadyInProgressException::TourAlreadyInProgressException(const char* messa
 InvalidTourParametersException::InvalidTourParametersException(const char* message) : TourGuideException(message) {}
 
 GuideSpecializationMismatchException::GuideSpecializationMismatchException(const char* message) : TourGuideException(message) {}
+
+InvalidVisitorParameterException::InvalidVisitorParameterException(const char *message) : Exception(message) {}
+
+FullParticipantsException::FullParticipantsException(const char *message) : Exception(message) {}
+
+VisitorAlreadyRegistered::VisitorAlreadyRegistered(const char *message) : Exception(message) {}
