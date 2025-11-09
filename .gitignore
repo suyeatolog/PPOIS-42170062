@@ -4,3 +4,4 @@ counter.txt
 CMakeLists.txt
 googletest
 .idea
+doc
