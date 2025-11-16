@@ -31,10 +31,10 @@ public:
      */
     Exhibition() = default;
 
-    /*! \brief Деструктор
+    /*! \brief Деструктор по умолчанию
      *  \details Корректно удаляет объект выставки
      */
-    ~Exhibition();
+    ~Exhibition() = default;
 
     /*! \brief Получение названия выставки
      *  \return Название выставки

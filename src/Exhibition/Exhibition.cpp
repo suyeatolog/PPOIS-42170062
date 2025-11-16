@@ -4,12 +4,6 @@
 
 #include "Exhibition.h"
 
-Exhibition::~Exhibition() {
-    for (auto* exhibit : exhibits_) {
-        delete exhibit;
-    }
-}
-
 std::string Exhibition::GetExhibitionName() const {
     return exhibitionName_;
 }
