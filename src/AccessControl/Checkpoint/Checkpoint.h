@@ -38,6 +38,19 @@ public:
      *           и кассу для возврата билета в случае, если посетитель небезопасен
      */
     void CheckAccess(Visitor& visitor, Guard& guard, TicketWindow& ticketWindow);
+    /*! \brief Получение номера пропускного пункта
+    *   \return Номер пропускного пункта
+    */
+    int GetCheckpointNumber() const;
+    /*! \brief Установка номера пропускного пункта
+     *  \param number номер пропускного пункта
+     */
+    void SetCheckpointNumber(int number);
+
+private:
+    /*! \brief Номер пропускного пункта
+     */
+    int checkpointNumber_ = 0;
 };
 
 #endif //LABWORK2_CHECKPOINT_H

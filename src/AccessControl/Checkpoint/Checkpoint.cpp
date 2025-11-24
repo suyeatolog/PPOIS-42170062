@@ -9,3 +9,10 @@ void Checkpoint::CheckAccess(Visitor &visitor, Guard &guard, TicketWindow &ticke
 
     visitor.SetVisitorHasAccess(true);
 }
+
+int Checkpoint::GetCheckpointNumber() const {
+    return checkpointNumber_;
+}
+void Checkpoint::SetCheckpointNumber(int number) {
+    this->checkpointNumber_ = number;
+}

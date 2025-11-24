@@ -8,6 +8,7 @@
 class CheckpointTest : public ::testing::Test {
 protected:
     void SetUp() override {
+        checkpoint.SetCheckpointNumber(1);
         visitorWithTicket.SetVisitorName("Eugene");
         visitorWithTicket.SetVisitorAge(30);
         visitorWithTicket.SetVisitorHasTicket(true);
@@ -24,6 +25,13 @@ protected:
     Visitor visitorWithoutTicket;
     Visitor visitor;
 };
+
+TEST_F(CheckpointTest, GetterSetterTest) {
+    EXPECT_EQ(checkpoint.GetCheckpointNumber(), 1);
+
+    checkpoint.SetCheckpointNumber(2);
+    EXPECT_EQ(checkpoint.GetCheckpointNumber(), 2);
+}
 
 TEST_F(CheckpointTest, AccessTest1) {
     checkpoint.CheckAccess(visitorWithTicket, guard, ticketWindow);
