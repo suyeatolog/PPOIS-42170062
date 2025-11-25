@@ -52,7 +52,7 @@ InvalidTourParametersException 0 0 → \
 GuideSpecializationMismatchException 0 0 → \
 InvalidVisitorParameterException 0 0 → \
 FullParticipantsException 0 0 → \
-VisitorAlreadyRegistered 0 0 → \
+VisitorAlreadyRegistered 0 0 → 
 
 Поля: 208
 
@@ -60,4 +60,4 @@ VisitorAlreadyRegistered 0 0 → \
 
 Ассоциации: 30+
 
-Исключения : 19
+Исключения: 19
