@@ -1,4 +1,4 @@
-# Предметная область музей на С++
+# Предметная область "музей" на С++
 
 Exhibit 4 9 → AncientTool, Armor, Book, CeramicVase, Coin, Costume, Fossil, HandmadeTowel, Jewelry, Painting, Sculpture, WorldWarIIArtifact \
 AncientTool 6 14 → \
